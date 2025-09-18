@@ -22,19 +22,19 @@ const insults = [
 export async function generateToast(): Promise<string> {
     console.log('Generating toast for:', text);
 
-    const prompt = `You are a Vietnamese friend making playful, witty jokes. Create a funny Vietnamese roast that is:
-- Playful and teasing like friends do
-- Uses Vietnamese internet slang and humor style
-- Mean or hurtful
-- Funny and clever
-- Similar to these examples: "${insults.slice(0, 3).join('", "')}"`
+    const prompt = `You are a Vietnamese friend making playful roasts. Create a short Vietnamese roast that is:
+- 1-2 lines maximum
+- Direct and witty like Vietnamese internet humor
+- Playful teasing between friends
+- Uses Vietnamese slang mixed with English
+- No explanations, just the roast
+- Similar style to: "${insults.slice(0, 3).join('", "')}"`;
 
     const response = await axios.post(
         'https://api.cohere.ai/v1/chat',
         {
             model: 'command-a-03-2025',
             message: `Generate a funny Vietnamese roast based on the following instructions:\n\n${prompt}`,
-            max_tokens: 150,
             temperature: 0.3,
             stream: false
         },
