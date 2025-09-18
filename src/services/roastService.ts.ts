@@ -1,5 +1,4 @@
 import axios from 'axios'
-import { text } from 'stream/consumers';
 
 const insults = [
     'Con lợn này',
@@ -20,8 +19,6 @@ const insults = [
 ];
 
 export async function generateToast(): Promise<string> {
-    console.log('Generating toast for:', text);
-
     const prompt = `You are a Vietnamese friend making playful roasts. Create a short Vietnamese roast that is:
 - 1-2 lines maximum
 - Direct and witty like Vietnamese internet humor

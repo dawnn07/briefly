@@ -6,6 +6,7 @@ import { addMessage } from './utils/recentMessages';
 import { addUser } from './utils/recentUsers';
 import roastCommand from './commands/roast';
 import helpCommand from './commands/help';
+import taixiuCommand from './commands/game';
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ bot.start(startCommand)
 bot.command('summarize', summarizeCommand)
 bot.command('roast', roastCommand)
 bot.command('help', helpCommand)
+bot.command('taixiu', taixiuCommand)
 
 bot.action(/^summarize_(\d+)$/, async (ctx) => {
   const lines = parseInt(ctx.match[1]);
