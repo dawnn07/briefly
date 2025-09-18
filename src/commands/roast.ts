@@ -1,23 +1,6 @@
 import { Context } from 'telegraf';
 import { getUsers } from '../utils/recentUsers';
-
-const insults = [
-  'Con lợn này',
-  'Pock Pock, nghe tiếng con gà đâu đây',
-  'Giảm cân đi bạn ơi',
-  'Bạn có bồ chưa , mình có rồi nè hẹ hẹ',
-  'Bạn có biết bạn trông như con lợn không?',
-  'Nhắn loz j lắm z',
-  'Bố mẹ bạn biết bạn gay chưa',
-  'Sao mày ko đi tắm cho thơm',
-  'Thứ dơ dáy',
-  'Tầm này chỉ có ăn cức',
-  'Ước gì tao có đc cái mồm như mày',
-  'Mày nghĩ mày là ai mà nói chuyện với tao',
-  'Mày có biết mày ngu ko',
-  'Heo kìa ahaha',
-  'Ko biết mày là con gì nữa',
-];
+import { generateToast } from '../services/roastService.ts';
 
 export default async function roastCommand(ctx: Context) {
   if (!ctx.chat) {
@@ -33,7 +16,7 @@ export default async function roastCommand(ctx: Context) {
   }
 
   const randomUser = users[Math.floor(Math.random() * users.length)];
-  const randomInsult = insults[Math.floor(Math.random() * insults.length)];
+  const randomInsult = await generateToast();
 
   await ctx.reply(`@${randomUser.name} ${randomInsult}`);
 }
