@@ -5,6 +5,7 @@ import * as dotenv from 'dotenv';
 import { addMessage } from './utils/recentMessages';
 import { addUser } from './utils/recentUsers';
 import roastCommand from './commands/roast';
+import helpCommand from './commands/help';
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ export const bot = new Telegraf(process.env.BOT_TOKEN! as string)
 bot.start(startCommand)
 bot.command('summarize', summarizeCommand)
 bot.command('roast', roastCommand)
+bot.command('help', helpCommand)
 
 bot.action(/^summarize_(\d+)$/, async (ctx) => {
   const lines = parseInt(ctx.match[1]);
