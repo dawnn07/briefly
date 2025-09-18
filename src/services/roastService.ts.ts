@@ -28,6 +28,7 @@ export async function generateToast(): Promise<string> {
 - Playful teasing between friends
 - Uses Vietnamese slang mixed with English
 - No explanations, just the roast
+- No use same jokes before
 - Similar style to: "${insults.slice(0, 3).join('", "')}"`;
 
     const response = await axios.post(
