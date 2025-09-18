@@ -8,7 +8,15 @@ const insults = [
   'Bạn có bồ chưa , mình có rồi nè hẹ hẹ',
   'Bạn có biết bạn trông như con lợn không?',
   'Nhắn loz j lắm z',
-  'Bố mẹ bạn biết bạn gay chưa'
+  'Bố mẹ bạn biết bạn gay chưa',
+  'Sao mày ko đi tắm cho thơm',
+  'Thứ dơ dáy',
+  'Tầm này chỉ có ăn cức',
+  'Ước gì tao có đc cái mồm như mày',
+  'Mày nghĩ mày là ai mà nói chuyện với tao',
+  'Mày có biết mày ngu ko',
+  'Heo kìa ahaha',
+  'Ko biết mày là con gì nữa',
 ];
 
 export default async function roastCommand(ctx: Context) {
