@@ -63,21 +63,6 @@ async function showMainMenu(ctx: Context, userId: number, userName: string) {
   const balance = getBalance(userId);
   const currentBet = getUserBet(userId);
   
-  const keyboard = Markup.inlineKeyboard([
-    [
-      Markup.button.callback('🎲 Chơi ngay', 'taixiu_quickplay'),
-      Markup.button.callback('💰 Số dư', 'taixiu_balance')
-    ],
-    [
-      Markup.button.callback('📊 Thống kê', 'taixiu_stats'),
-      Markup.button.callback('🏆 BXH', 'taixiu_top')
-    ],
-    [
-      Markup.button.callback('🎁 Bonus', 'taixiu_bonus'),
-      Markup.button.callback('❓ Hướng dẫn', 'taixiu_help')
-    ]
-  ]);
-
   let message = `🎰 **TÀI XỈU CASINO** 🎰\n\n`;
   message += `👋 Chào ${userName}!\n`;
   message += `💰 Số dư: ${balance.toLocaleString()} điểm\n`;
@@ -87,9 +72,7 @@ async function showMainMenu(ctx: Context, userId: number, userName: string) {
     message += `⚡ Dùng /taixiu roll để quay!\n`;
   }
   
-  message += `\nChọn hành động:`;
-
-  await ctx.reply(message, keyboard);
+  await ctx.reply(message);
 }
 
 async function handleBet(ctx: Context, userId: number, choice: 'tai' | 'xiu', amountStr?: string) {
